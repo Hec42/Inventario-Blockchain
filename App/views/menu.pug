@@ -1,0 +1,40 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  meta(name='description' content='')
+  meta(name='author' content='Equipo x')
+  title Men&uacute;
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous')
+  link(href='css/menu.css' rel='stylesheet')
+.container.py-3
+  header
+    img.rounded.mx-auto.d-block(src='images/logo.png' alt='' width='180' height='180')
+    .pricing-header.p-3.pb-md-4.mx-auto.text-center
+      h1.display-4.fw-normal Inventario
+  main
+    .row.row-cols-1.row-cols-md-3.mb-3.text-center(style='height: 410px;')
+      .col
+        .card.mb-4.rounded-3.shadow-sm
+          .card-header.py-3
+            h4.my-0.fw-normal Productos
+          form(action='/consultaProductos')
+            .card-body.h-100
+              p.fs-5.text-muted Se pueden consultar todos los productos disponibles.
+              button.w-100.btn.btn-lg.btn-outline-primary(type='submit') Consultar
+      .col
+        .card.mb-4.rounded-3.shadow-sm
+          .card-header.py-3
+            h4.my-0.fw-normal Historial
+          form(action='/historialMovimientos')
+            .card-body.h-100
+              p.fs-5.text-muted Se puede consultar el historial de movimientos.
+              button.w-100.btn.btn-lg.btn-outline-primary(type='submit') Consultar
+      .col
+        .card.mb-4.rounded-3.shadow-sm
+          .card-header.py-3
+            h4.my-0.fw-normal Venta
+          form(action='/venta')
+            .card-body.h-100
+              p.fs-5.text-muted Se pueden vender productos en cantidad.
+              button.w-100.btn.btn-lg.btn-outline-primary(type='submit') Vender
