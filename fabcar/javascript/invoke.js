@@ -45,6 +45,7 @@ async function main() {
         //await contract.submitTransaction('createCar', 'CAR12', 'Honda', 'Accord', 'Black', 'Tom');
         //await contract.submitTransaction('sellProducto', 'id2','12/12/2021','10:00',6,'Celular','id4');
         await contract.submitTransaction('supplyTienda', 'ID11', 'ID3', 20, '12/12/2021','15:00','ID50');
+        console.log('Transaction has been submitted');
         await contract.submitTransaction('updateBodega', 'ID11', 20, '12/12/2021','15:00','ID51');
         console.log('Transaction has been submitted');
 

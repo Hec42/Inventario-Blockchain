@@ -49,7 +49,7 @@ class FabCar extends Contract {
                 sucursal: 'Churubusco',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'Mesa',
+                articulo: 'Mesa',
                 cantidad: 6
             },
             {
@@ -57,7 +57,7 @@ class FabCar extends Contract {
                 sucursal: 'Churubusco',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'Silla',
+                articulo: 'Silla',
                 cantidad: 8
             },
             {
@@ -65,7 +65,7 @@ class FabCar extends Contract {
                 sucursal: 'Doctores',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'Cereal',
+                articulo: 'Cereal',
                 cantidad: 50
             },
             {
@@ -73,7 +73,7 @@ class FabCar extends Contract {
                 sucursal: 'Doctores',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'Leche',
+                articulo: 'Leche',
                 cantidad: 38
             },
             {
@@ -81,7 +81,7 @@ class FabCar extends Contract {
                 sucursal: 'NA',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'Jabon',
+                articulo: 'Jabon',
                 cantidad: 100
             },
             {
@@ -89,7 +89,7 @@ class FabCar extends Contract {
                 sucursal: 'NA',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'TV',
+                articulo: 'TV',
                 cantidad: 100
             },
             {
@@ -97,7 +97,7 @@ class FabCar extends Contract {
                 sucursal: 'NA',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'Telefono',
+                articulo: 'Telefono',
                 cantidad: 100
             },
             {
@@ -105,7 +105,7 @@ class FabCar extends Contract {
                 sucursal: 'NA',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'Tableta',
+                articulo: 'Tableta',
                 cantidad: 100
             },
             {
@@ -113,7 +113,7 @@ class FabCar extends Contract {
                 sucursal: 'NA',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'Mesa',
+                articulo: 'Mesa',
                 cantidad: 100
             },
             {
@@ -121,7 +121,7 @@ class FabCar extends Contract {
                 sucursal: 'NA',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'Silla',
+                articulo: 'Silla',
                 cantidad: 100
             },
             {
@@ -129,7 +129,7 @@ class FabCar extends Contract {
                 sucursal: 'NA',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'Cereal',
+                articulo: 'Cereal',
                 cantidad: 100
             },
             {
@@ -137,7 +137,7 @@ class FabCar extends Contract {
                 sucursal: 'NA',
                 fecha: '11/12/2021',
                 hora: '9:00',
-                producto: 'Leche',
+                articulo: 'Leche',
                 cantidad: 100
             }
         ];
@@ -217,7 +217,7 @@ class FabCar extends Contract {
 
         await ctx.stub.putState(p_newID, Buffer.from(JSON.stringify(newItem)));
     }
-    /*
+    
     async supplyTienda(ctx, p_prodBodegaid, p_prodID, p_cantidad, p_fecha, p_hora, p_newID) {
         const productoBodegaAsBytes = await ctx.stub.getState(p_prodBodegaid);
         if (!productoBodegaAsBytes || productoBodegaAsBytes.length === 0) {
@@ -225,7 +225,7 @@ class FabCar extends Contract {
         }
         const c_prodBodega = JSON.parse(productoBodegaAsBytes.toString());
         if (c_prodBodega.cantidad < p_cantidad) {
-            throw new Error(`Cantidad de ${p_producto} insuficiente en la bodega`);   
+            throw new Error(`Cantidad de ${c_prodBodega.articulo} insuficiente en la bodega`);   
         }
         
         const prodSucursalAsBytes = await ctx.stub.getState(p_prodID);
@@ -235,7 +235,7 @@ class FabCar extends Contract {
         const c_prod = JSON.parse(prodSucursalAsBytes.toString());
 
         const temp = parseInt(c_prod.cantidad);
-        c_prod.cantidad = temp + p_cantidad;
+        c_prod.cantidad = temp + parseInt(p_cantidad);
 
         const newItem = {
             organizacion: c_prod.organizacion,
@@ -243,13 +243,13 @@ class FabCar extends Contract {
             sucursal: c_prod.sucursal,
             fecha: p_fecha,
             hora: p_hora,
-            articulo: c_prod.producto,
+            articulo: c_prod.articulo,
             cantidad: c_prod.cantidad
         };
 
         await ctx.stub.putState(p_newID, Buffer.from(JSON.stringify(newItem)));
     }
-
+    
     async updateBodega(ctx, p_prodBodegaid, p_cantidad, p_fecha, p_hora, p_newID) {
         const productoBodegaAsBytes = await ctx.stub.getState(p_prodBodegaid);
         const c_prodBodega = JSON.parse(productoBodegaAsBytes.toString());
@@ -263,13 +263,12 @@ class FabCar extends Contract {
             sucursal: c_prodBodega.sucursal,
             fecha: p_fecha,
             hora: p_hora,
-            articulo: c_prodBodega.producto,
+            articulo: c_prodBodega.articulo,
             cantidad: c_prodBodega.cantidad
         };
 
         await ctx.stub.putState(p_newID, Buffer.from(JSON.stringify(newItem)));
-    }    
-    */
+    }
 }
 
 module.exports = FabCar;
