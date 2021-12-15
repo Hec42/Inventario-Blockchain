@@ -19,7 +19,12 @@ head
     font-size: 3.5rem;
     }
     }
+body.bg-light
 .container.py-3.mt-5
+  nav.navbar.navbar-light.bg-light
+    .container-fluid
+      a.navbar-brand(href='/menu') Inicio
+      a.navbar-brand(href='/cerrarSesion') Cerrar sesi&oacute;n
   header
     h1 Consulta de productos
   main
@@ -27,14 +32,20 @@ head
       table.table.text-center
         thead
           tr
-            th(style='width: 34%;') Producto
-            th(style='width: 22%;') Disponibles
-            th(style='width: 22%;') Vendidos
+            th(style='width: 34%;') Articulo
+            th(style='width: 22%;') Cantidad
+            th(style='width: 22%;') Organización
             th(style='width: 22%;') Sucursal
+            th(style='width: 22%;') Fecha
+            th(style='width: 22%;') Hora
+            
         tbody
             each product in productos
                 tr
-                    th.text-start(scope='row') #{product["producto"]}
-                    td=product["disponibilidad"]
-                    td=product["vendidos"]
-                    td=product["sucursal"]
+                    th.text-start(scope='row') #{product['Record']["articulo"]}
+                    td=product['Record']["cantidad"]
+                    td=product['Record']["organizacion"]
+                    td=product['Record']['sucursal']
+                    td=product['Record']["fecha"]
+                    td=product['Record']['hora']
+                    

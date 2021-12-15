@@ -18,24 +18,31 @@ body.bg-light
       a.navbar-brand(href='/cerrarSesion') Cerrar sesi&oacute;n
   main
     .py-5.text-center
-      h1 Venta de producto
-    form.needs-validation(action='/venta' method='POST' novalidate='')
+      h1 Suministro de productos
+    form.needs-validation(action='/suministroProductos' method='POST' novalidate='')
       .row.g-3
-        .col-sm-6
+        .col-sm-4
           h4.mb-3
             label.form-label(for='firstName') Producto
           select.form-select(aria-label='Default select example' name="producto")
             option(selected='') Seleccione un producto
             each producto in productos
-              option(value=producto['Key']) #{producto['Record']["articulo"]}
-        .col-sm-6
+              option(value=producto['Key']+':'+producto['Record']['articulo']) #{producto['Record']["articulo"]}
+        .col-sm-4
+          h4.mb-3
+            label.form-label() Tienda
+          select.form-select(aria-label='Default select example' name="tienda")
+            option(selected='') Seleccione una tienda
+            each org in organizaciones
+              option(value=org.tienda) #{org.tienda}
+        .col-sm-4
           h4.mb-3
             label.form-label(for='amount') Cantidad
           input#amount.form-control(type='number' placeholder='' value="1" min="1"  name="cantidad")
           .invalid-feedback
             | Debe ser al menos 1.
         hr.my-4
-        button.btn.btn-primary.btn-lg.mt-15(style='width: 30% !important;margin-left:35%;' type='submit') Vender
+        button.btn.btn-primary.btn-lg.mt-15(style='width: 30% !important;margin-left:35%;' type='submit') Suministrar
   if exito
     .alert.alert-success.my-5(role='alert')
       | ¡Venta concluida exitosamente!

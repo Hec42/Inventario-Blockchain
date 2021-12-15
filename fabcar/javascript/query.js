@@ -44,8 +44,43 @@ async function main() {
         // queryCar transaction - requires 1 argument, ex: ('queryCar', 'CAR4')
         // queryAllCars transaction - requires no arguments, ex: ('queryAllCars')
         //const result = await contract.evaluateTransaction('queryAllTxn');
-        const result = await contract.evaluateTransaction('queryProductos','Bodega');
+        //const result = await contract.evaluateTransaction('queryProductos','Bodega');
+        //const result = await contract.evaluateTransaction('queryAllTxn');
+
+
+        //try{
+        //    const result=await contract.evaluateTransaction('sellProducto','ID13', '13/12/2021','02:12', 99, 'Silla', 'ID13');
+        // }
+        //catch(error){
+        //        console.log(`ERROR: ${error}`);
+        //}
+        //const result = await contract.evaluateTransaction('queryProductos','Bodega');
+        //const result = await contract.evaluateTransaction('queryAllTxn');
+        //console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
+        //console.log("======================================");
+        //var ccccc1 = result.toString()
+        //var ccccc1 = JSON.parse(result.toString());
+
+        //console.log(`Transaction has been evaluated, result is: ${ccccc1.length}`);
+        //console.log(`RESULTADO CON JSON: ${JSON.parse(result)}`);
+        //console.log(`RESULTADO CON JSON: ${JSON.parse(result).count}`);
+        //console.log(`RESULTADO CON JSON ELEMENTOS: ${JSON.parse(result)}`);
+        //console.log(`RESULTADO CON JSON: ${result.length}`);
+
+        /////////////
+        /*try{
+            await contract.evaluateTransaction('sellProducto','ID13', '13/12/2021','02:12', 50, 'Silla','ID80');
+        }
+        catch(error){
+               console.log(`ERROR: ${error}`);
+        }*/
+        const result = await contract.evaluateTransaction('queryProductos','Walmart');
+        //const result = await contract.evaluateTransaction('queryAllTxn');
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
+        console.log("======================================");
+
+        /////////////
+
 
         // Disconnect from the gateway.
         await gateway.disconnect();
@@ -57,3 +92,4 @@ async function main() {
 }
 
 main();
+[{"Key":"ID10","Record":{"articulo":"Celular","cantidad":100,"docType":"producto","fecha":"11/12/2021","hora":"9:00","organizacion":"Bodega","sucursal":"NA"}},{"Key":"ID11","Record":{"articulo":"Tableta","cantidad":100,"docType":"producto","fecha":"11/12/2021","hora":"9:00","organizacion":"Bodega","sucursal":"NA"}},{"Key":"ID12","Record":{"articulo":"Mesa","cantidad":100,"docType":"producto","fecha":"11/12/2021","hora":"9:00","organizacion":"Bodega","sucursal":"NA"}},{"Key":"ID13","Record":{"articulo":"Silla","cantidad":100,"docType":"producto","fecha":"11/12/2021","hora":"9:00","organizacion":"Bodega","sucursal":"NA"}},{"Key":"ID14","Record":{"articulo":"Cereal","cantidad":100,"docType":"producto","fecha":"11/12/2021","hora":"9:00","organizacion":"Bodega","sucursal":"NA"}},{"Key":"ID15","Record":{"articulo":"Leche","cantidad":100,"docType":"producto","fecha":"11/12/2021","hora":"9:00","organizacion":"Bodega","sucursal":"NA"}},{"Key":"ID8","Record":{"articulo":"Computadora","cantidad":100,"docType":"producto","fecha":"11/12/2021","hora":"9:00","organizacion":"Bodega","sucursal":"NA"}},{"Key":"ID9","Record":{"articulo":"TV","cantidad":100,"docType":"producto","fecha":"11/12/2021","hora":"9:00","organizacion":"Bodega","sucursal":"NA"}}]
