@@ -11,6 +11,7 @@
 - La última versión de Git
 - La última versión de cURL
 - La última versión de Docker y Docker Compose
+- La última versión de node js y npm
 - La versión 2.3.3 de Fabric y la 1.5.2 de Fabric CA
 `curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.3.3 1.5.2`
 
